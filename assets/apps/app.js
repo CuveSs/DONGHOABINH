@@ -16,12 +16,13 @@ listImg.forEach((imgElement, index) => {
 });
 
 prevBtn.addEventListener("click", (e) => {
+  imgFeature.style.animation = "";
+
   if (currentIndex == 0) {
     currentIndex = listImg.length - 1;
   } else {
     currentIndex--;
   }
-
   updateImgByIndex(currentIndex);
 });
 
@@ -31,6 +32,5 @@ nextBtn.addEventListener("click", (e) => {
   } else {
     currentIndex++;
   }
-
   updateImgByIndex(currentIndex);
 });

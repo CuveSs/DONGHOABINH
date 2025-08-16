@@ -148,6 +148,8 @@ a {
   position: relative;
   width: 626px;
   height: 400px;
+  background-color: #ccc;
+  overflow: hidden;
 }
 
 .img-feature {
@@ -162,7 +164,7 @@ a {
   width: 54px;
   height: 100%;
   background-color: transparent;
-  color: #ffffff;
+  color: transparent;
   font-size: 1.8rem;
   border: none;
   margin: 0;
@@ -173,6 +175,7 @@ a {
 }
 
 .control:hover {
+  color: #ccc;
   transition: 0.2s ease-in-out;
   background-color: rgba(255, 247, 251, 0.1);
 }
@@ -187,4 +190,98 @@ a {
 
 .slideshow-img__list {
   display: none;
+}
+
+/* =========================Our-Service================================= */
+.service {
+  padding: 53px 0;
+}
+
+.section__sub-title::before {
+  margin-right: 21px;
+  display: inline-block;
+  width: 25px;
+  height: 1px;
+  background: var(--primary-color);
+  content: "";
+}
+
+.section__sub-title {
+  display: flex;
+  align-items: center;
+  font-family: var(--heading-font);
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2;
+  color: var(--second-primary-color);
+}
+
+.service__header-top {
+  margin-top: 12px;
+  color: var(--second-primary-color);
+  font-size: 4.2rem;
+  font-weight: 600;
+  line-height: 1.23;
+}
+
+.service__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 32px;
+  margin-top: 76px;
+}
+
+.service__item {
+  border-radius: 20px;
+}
+
+.service__item:hover {
+  background: var(--white-color);
+  box-shadow: -6px 9px 64px -4px rgba(118, 118, 118, 0.25);
+  border-radius: 20px;
+}
+
+.service__item:hover .service__thumb {
+  transform: scale(1.1);
+}
+
+.service__item:hover .service__info {
+  padding: 24px 18px;
+}
+
+.service__img {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+
+.service__thumb {
+  display: block;
+  width: 100%;
+  height: 318px;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+}
+
+.service__info {
+  padding: 24px 0;
+  transition: 0.25s;
+}
+
+.service__title {
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.service__desc {
+  text-align: left;
+  width: 491px;
+  margin-top: 18px;
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.71;
 }
