@@ -160,24 +160,29 @@ a {
 
 .control {
   width: 54px;
-  height: 54px;
-  border-radius: 50%;
+  height: 100%;
   background-color: transparent;
   color: #ffffff;
   font-size: 1.8rem;
   border: none;
+  margin: 0;
   position: absolute;
   top: 50%;
   cursor: pointer;
   transform: translateY(-50%);
 }
 
+.control:hover {
+  transition: 0.2s ease-in-out;
+  background-color: rgba(255, 247, 251, 0.1);
+}
+
 .prev {
-  left: 10px;
+  left: 0px;
 }
 
 .next {
-  right: 10px;
+  right: 0px;
 }
 
 .slideshow-img__list {
