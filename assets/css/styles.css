@@ -42,16 +42,16 @@ a {
 
 .btn {
   display: inline-block;
-  min-width: 98px;
-  background-color: var(--btn-color);
-  color: var(--white-color);
-  font-weight: 500;
-  font-size: 1.4rem;
-  text-align: center;
-  padding: 18px 16px;
-  border: 1px solid var(--btn-background-color);
-  border-radius: 40px;
+  min-width: 160px;
+  height: 50px;
+  color: var(--btn-background-color);
+  background: var(--primary-color);
+  border-radius: 8px;
   outline: none;
+  border: none;
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -482,7 +482,7 @@ a {
 }
 
 .contact__list {
-  margin: 90px 0;
+  margin: 50px 0;
   display: flex;
   flex-direction: column;
   row-gap: 36px;
@@ -542,8 +542,8 @@ a {
   padding: 28px 32px;
 }
 
-.contact__input:has(:invalid) .submit_box-btn {
-  opacity: 0.5;
+.contact__input:has(:invalid) .submit-box__btn {
+  opacity: 0.7;
   pointer-events: none;
 }
 
@@ -583,6 +583,10 @@ a {
   margin-top: 4px;
   color: red;
   font-size: 1.2rem;
+}
+
+.submit-box__btn {
+  margin-left: auto;
 }
 
 .form-input,
