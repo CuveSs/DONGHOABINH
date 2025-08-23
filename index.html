@@ -122,10 +122,10 @@
                   <a href="#our-service" class="navbar-link">OUR SERVICE</a>
                 </li>
                 <li class="navbar-item">
-                  <a href="#!" class="navbar-link">PRODUCT</a>
+                  <a href="#project" class="navbar-link">PRODUCT</a>
                 </li>
                 <li class="navbar-item">
-                  <a href="#!" class="navbar-link">LET'S WORK TOGETHER</a>
+                  <a href="#contact" class="navbar-link">LET'S WORK TOGETHER</a>
                 </li>
               </ul>
             </nav>
@@ -230,7 +230,7 @@
       </section>
 
       <!-- PROJECT -->
-      <section class="project">
+      <section class="project" id="project">
         <div class="container">
           <header class="project__header">
             <h2 class="project__heading">Take a look at our latest project</h2>
@@ -255,7 +255,7 @@
               </a>
 
               <section class="project__info">
-                <a href="" class="project__title">Đồ nội thất</a>
+                <a href="" class="project__title">ĐỒ NỘI THẤT</a>
                 <p class="project__desc">
                   Chúng tôi chuyên thiết kế, sản xuất và phân phối đồ nội thất
                   chất lượng cao, từ các sản phẩm gia dụng đến giải pháp nội
@@ -275,7 +275,7 @@
               </a>
 
               <section class="project__info">
-                <a href="" class="project__title">Dụng cụ ngư nghiệp</a>
+                <a href="" class="project__title">DỤNG CỤ NGƯ NGHIỆP</a>
                 <p class="project__desc">
                   Chúng tôi chuyên thiết kế, sản xuất và phân phối đồ nội thất
                   chất lượng cao, từ các sản phẩm gia dụng đến giải pháp nội
@@ -295,7 +295,7 @@
               </a>
 
               <section class="project__info">
-                <a href="" class="project__title">Nhà kính</a>
+                <a href="" class="project__title">NHÀ KÍNH </a>
                 <p class="project__desc">
                   Chúng tôi chuyên thiết kế, sản xuất và phân phối đồ nội thất
                   chất lượng cao, từ các sản phẩm gia dụng đến giải pháp nội
@@ -304,6 +304,112 @@
               </section>
             </article>
           </div>
+        </div>
+      </section>
+      <!-- CONTACT -->
+      <section class="contact" id="contact">
+        <div class="container">
+          <header class="contact__header">
+            <h2 class="contact__header-top">Contact Us</h2>
+            <p class="contact__header-desc">
+              Any question or remarks? Just write us a message!
+            </p>
+          </header>
+          <!-- Contact form -->
+          <section class="contact__form">
+            <!-- Contact info -->
+            <article class="contact__info">
+              <h2 class="contact__info-header">Contact Information</h2>
+              <p class="contact__info-desc">
+                Fill up the form and our Team will get back to you as soon as
+                possible.
+              </p>
+              <div class="contact__list">
+                <!-- Phone -->
+                <div class="contact__info-item">
+                  <a href="tel:" class="contact__info-icon">
+                    <i class="fa-solid fa-phone"></i>
+                  </a>
+                  <a href="tel:0344603459" class="contact__info-value">
+                    0344 603 459
+                  </a>
+                </div>
+
+                <!-- Whatapps -->
+                <div class="contact__info-item">
+                  <a
+                    href="https://wa.me/84344603459 "
+                    class="contact__info-icon"
+                  >
+                    <i class="fa-brands fa-whatsapp"></i>
+                  </a>
+                  <a
+                    href="https://wa.me/84344603459"
+                    class="contact__info-value"
+                  >
+                    (+84) 344 603 459
+                  </a>
+                </div>
+
+                <!-- Mailto -->
+                <div class="contact__info-item">
+                  <a
+                    href="mailto:donghoabinh@gmail.com"
+                    class="contact__info-icon"
+                  >
+                    <i class="fa-solid fa-envelope"></i>
+                  </a>
+                  <a
+                    href="mailto:donghoabinh@gmail.com"
+                    class="contact__info-value"
+                  >
+                    donghoabinh@gmail.com
+                  </a>
+                </div>
+
+                <div class="contact__circle"></div>
+                <div class="contact__circle large"></div>
+              </div>
+            </article>
+
+            <!-- Contact input -->
+            <article class="contact__input">
+              <form action="" autocomplete="off" method="POST">
+                <div class="form-row">
+                  <label for="mail" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    id="mail"
+                    name="email"
+                    class="form-input"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                    required
+                    placeholder="Enter your email"
+                  />
+                  <p class="form-error">" Vui lòng nhập đúng mail "</p>
+                </div>
+                <div class="form-row">
+                  <label for="first-name" class="form-label small">
+                    Message
+                  </label>
+                  <textarea
+                    name="message"
+                    id="message"
+                    class="form-textarea"
+                    placeholder="Write your message ..."
+                    oninput=""
+                    required
+                    minlength="10"
+                  >
+                  </textarea>
+                  <p class="form-error">" Vui lòng nhập tối thiểu 10 ký tự "</p>
+                </div>
+                <div class="form-row submit-box">
+                  <button typ class="submit-box__btn">Send Message</button>
+                </div>
+              </form>
+            </article>
+          </section>
         </div>
       </section>
     </main>
