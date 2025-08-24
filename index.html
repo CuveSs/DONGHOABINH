@@ -125,7 +125,7 @@
                   <a href="#project" class="navbar-link">PRODUCT</a>
                 </li>
                 <li class="navbar-item">
-                  <a href="#contact" class="navbar-link">LET'S WORK TOGETHER</a>
+                  <a href="#contact" class="navbar-link">CONTACT US</a>
                 </li>
               </ul>
             </nav>
@@ -310,7 +310,7 @@
       <section class="contact" id="contact">
         <div class="container">
           <header class="contact__header">
-            <h2 class="contact__header-top">Contact Us</h2>
+            <h2 class="contact__header-top">LET'S WORK TOGETHER</h2>
             <p class="contact__header-desc">
               Any question or remarks? Just write us a message!
             </p>
@@ -384,41 +384,16 @@
             </article>
 
             <!-- Contact input -->
-            <article class="contact__input">
-              <form action="" autocomplete="off" method="POST">
-                <div class="form-row">
-                  <label for="mail" class="form-label">Email</label>
-                  <input
-                    type="email"
-                    id="mail"
-                    name="email"
-                    class="form-input"
-                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                    required
-                    placeholder="Enter your email"
-                  />
-                  <p class="form-error">" Vui lòng nhập đúng mail "</p>
-                </div>
-                <div class="form-row">
-                  <label for="first-name" class="form-label small">
-                    Message
-                  </label>
-                  <textarea
-                    name="message"
-                    id="message"
-                    class="form-textarea"
-                    placeholder="Write your message ..."
-                    oninput=""
-                    required
-                    minlength="10"
-                  >
-                  </textarea>
-                  <p class="form-error">" Vui lòng nhập tối thiểu 10 ký tự "</p>
-                </div>
-                <div class="form-row submit-box">
-                  <button typ class="submit-box__btn btn">Send Message</button>
-                </div>
-              </form>
+            <article class="contact__map">
+              <div class="contact__map-box">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.0244036298072!2d106.96659467587004!3d10.961529055750514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174e77024f79b8b%3A0x5dae0a47c8ae2eda!2sDong%20Hoa%20Binh%20Company%20Limited!5e0!3m2!1svi!2s!4v1756021351159!5m2!1svi!2s"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  class="contact__map-screen"
+                ></iframe>
+              </div>
             </article>
           </section>
         </div>
@@ -427,11 +402,30 @@
 
     <script src="./assets/apps/app.js"></script>
 
-    <!-- <section class="project__FT-modal" id="project__FT-modal">
-      <article class="project__FT-modal-base"></article>
-      <div class="project__FT-modal-body">
-        <div class="project__FT-modal-inner"></div>
+    <section class="project__FT-modal" id="project__FT-modal">
+      <div class="project__modal-overlay"></div>
+
+      <div class="project__modal-body">
+        <div class="project__modal-wrapper">
+          <!-- SHOW IMAGE -->
+          <div class="tall"></div>
+          <div></div>
+          <div class="wide"></div>
+          <div class="tall"></div>
+          <div></div>
+          <div></div>
+          <div class="tall"></div>
+          <div></div>
+          <div class="wide"></div>
+          <div></div>
+          <div class="wide"></div>
+          <div></div>
+        </div>
       </div>
-    </section> -->
+    </section>
   </body>
+  <footer class="footer">
+    <div class="footer__line"></div>
+    <p class="copyright">© 2022 Dong Hoa Binh LLC</p>
+  </footer>
 </html>
