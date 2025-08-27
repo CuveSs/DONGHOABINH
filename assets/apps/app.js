@@ -34,3 +34,22 @@ nextBtn.addEventListener("click", (e) => {
   }
   updateImgByIndex(currentIndex);
 });
+
+/* =========================MODAL================================= */
+const showBtns = document.querySelectorAll(".project__list .project__item");
+const modal = document.querySelector(".modal");
+const modalClose = document.querySelector(".modal__close-btn");
+
+function showModalBtn() {
+  modal.classList.add("open");
+}
+
+function hideModalBtn() {
+  modal.classList.remove("open");
+}
+
+for (const showBtn of showBtns) {
+  showBtn.addEventListener("click", showModalBtn);
+}
+
+modalClose.addEventListener("click", hideModalBtn);
