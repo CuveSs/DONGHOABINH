@@ -36,20 +36,53 @@ nextBtn.addEventListener("click", (e) => {
 });
 
 /* =========================MODAL================================= */
-const showBtns = document.querySelectorAll(".project__list .project__item");
-const modal = document.querySelector(".modal");
-const modalClose = document.querySelector(".modal__close-btn");
+const showFTBtn = document.querySelector(".project__item-FT");
+const modalFT = document.querySelector(".modal__FT-project");
+const modalFTClose = document.querySelector(".modal__FT-close-btn");
+const modalFTLayOut = document.querySelector(".modal__FT-layout");
+const showCBBtn = document.querySelector(".project__item-CB");
+const modalCB = document.querySelector(".modal__CB-project");
+const modalCBClose = document.querySelector(".modal__CB-close-btn");
+const modalCBLayOut = document.querySelector(".modal__CB-layout");
 
-function showModalBtn() {
-  modal.classList.add("open");
-}
+showFTBtn.addEventListener("click", (showModalFTBtn) => {
+  modalFT.classList.add("open");
+});
 
-function hideModalBtn() {
-  modal.classList.remove("open");
-}
+modalFTClose.addEventListener("click", (FT) => {
+  modalFT.classList.remove("open");
+});
 
-for (const showBtn of showBtns) {
-  showBtn.addEventListener("click", showModalBtn);
-}
+modalFTLayOut.addEventListener("click", (FTLO) => {
+  modalFT.classList.remove("open");
+});
 
-modalClose.addEventListener("click", hideModalBtn);
+// CB
+showCBBtn.addEventListener("click", (showCBModal) => {
+  modalCB.classList.add("open");
+});
+
+modalCBClose.addEventListener("click", (CB) => {
+  modalCB.classList.remove("open");
+});
+
+modalCBLayOut.addEventListener("click", (CBLO) => {
+  modalCB.classList.remove("open");
+});
+
+const showGHBtn = document.querySelector(".project__item-GH");
+const modalGH = document.querySelector(".modal__GH-project");
+const modalGHClose = document.querySelector(".modal__GH-close-btn");
+const modalGHLayOut = document.querySelector(".modal__GH-layout");
+
+showGHBtn.addEventListener("click", (showModalGH) => {
+  modalGH.classList.add("open");
+});
+
+modalGHClose.addEventListener("click", (GH) => {
+  modalGH.classList.remove("open");
+});
+
+modalGHLayOut.addEventListener("click", (GHLO) => {
+  modalGH.classList.remove("open");
+});
