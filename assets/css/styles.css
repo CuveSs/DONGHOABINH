@@ -627,7 +627,7 @@ a {
 
 .modal__FT-close-btn {
   position: fixed;
-  right: 385px;
+  right: 400px;
   top: 170px;
   width: 50px;
   height: 50px;
@@ -679,7 +679,7 @@ a {
 
 .modal__CB-close-btn {
   position: fixed;
-  right: 385px;
+  right: 400px;
   top: 170px;
   width: 50px;
   height: 50px;
@@ -731,7 +731,7 @@ a {
 
 .modal__GH-close-btn {
   position: fixed;
-  right: 385px;
+  right: 400px;
   top: 170px;
   width: 50px;
   height: 50px;
@@ -799,3 +799,5 @@ a {
     transform: translateY(0);
   }
 }
+
+/* =========================RESPONSIVE================================= */
