@@ -1,3 +1,106 @@
 /* ************************TABLET************************************* */
 
-@media (max-width: 1024px);
+@media (max-width: 1024px) and (min-width: 740px) {
+  /* ************************HEADER************************************* */
+
+  .homepage {
+    padding-bottom: 400px;
+    border-bottom: 1px solid var(--btn-background-color);
+  }
+
+  .about-us {
+    margin-right: 32px;
+  }
+
+  .slideshow .slides-area {
+    width: 100%;
+    height: 555px;
+  }
+
+  /* ************************OUR SERVICE************************************* */
+
+  .service {
+    padding-top: 198px;
+  }
+
+  .service__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .service__info {
+    padding: 24px;
+  }
+
+  .service__item:hover .service__info {
+    padding: 24px 20px;
+  }
+
+  .service__desc {
+    width: 100%;
+  }
+
+  /* ************************OUR PROJECT************************************* */
+
+  .project__heading {
+    width: 82%;
+  }
+
+  .project__sub-title {
+    width: 94.98%;
+  }
+
+  .project__list {
+    display: block;
+  }
+
+  .project__item {
+    display: flex;
+    margin-bottom: 16px;
+  }
+
+  .project__img {
+    border-radius: 20px 0 0 20px;
+    width: 55%;
+  }
+
+  .project__thumb {
+    border-radius: 20px 0 0 20px;
+  }
+
+  .project__info {
+    margin: 12px 24px;
+    width: calc(100% - 55%);
+  }
+
+  .project__desc {
+    width: 397px;
+  }
+
+  /* MODAL */
+
+  .project__modal-FT-wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(227px, 1px));
+  }
+
+  .modal__FT-close-btn {
+    right: 45px;
+  }
+
+  .project__modal-CB-wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(227px, 1px));
+  }
+
+  .modal__CB-close-btn {
+    right: 45px;
+  }
+
+  .modal__GH-wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(227px, 1px));
+  }
+
+  .modal__GH-close-btn {
+    right: 45px;
+  }
+}
