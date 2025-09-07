@@ -1,7 +1,19 @@
+:root {
+  --primary-color: #2e3c3b;
+  --primary-color-rgba: rgba(46, 60, 59, 0.9);
+  --mix-color: #e9967a;
+  --second-primary-color: #daae5d;
+  --btn-background-color: #daae5d;
+  --yellow-color: #daae5d;
+  --white-color: #ffffff;
+  --ghost-white: #f9f9fb;
+  --heading-font: "Libertinus Sans";
+}
+
 /* ************************TABLET************************************* */
 
 @media (max-width: 1024px) and (min-width: 740px) {
-  /* ************************HEADER************************************* */
+  /* ************************HEADER*********************** */
 
   .homepage {
     padding-bottom: 400px;
@@ -17,7 +29,7 @@
     height: 555px;
   }
 
-  /* ************************OUR SERVICE************************************* */
+  /* **********************OUR SERVICE******************* */
 
   .service {
     padding-top: 198px;
@@ -102,5 +114,214 @@
 
   .modal__GH-close-btn {
     right: 45px;
+  }
+}
+
+/* ************************MOBILE************************************* */
+
+@media (max-width: 740px) {
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  .header {
+    padding-top: 55px;
+    height: 190px;
+    transition: 0.25s ease;
+  }
+
+  .header-extend {
+    height: 230px;
+  }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 167px;
+  }
+
+  .logo {
+    margin-right: auto;
+  }
+
+  .navbar {
+    position: absolute;
+    top: 0;
+    display: none;
+    width: 100%;
+    animation: navbarAnimation 0.25s ease;
+  }
+
+  @keyframes navbarAnimation {
+    from {
+      transform: translateY(-100px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .navbar-open {
+    display: block;
+  }
+  .navbar-list {
+    display: block;
+  }
+
+  .navbar-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: var(--btn-background-color);
+    padding: 6px 24px;
+    border: 1px solid var(--primary-color);
+    transition: 0.25s ease;
+    cursor: pointer;
+  }
+
+  .navbar-item:hover {
+    padding: 6px 40px;
+  }
+
+  .navbar-link {
+    width: 100%;
+    color: var(--primary-color);
+  }
+
+  .navbar__control {
+    display: flex;
+    top: 1px;
+    right: 1px;
+    font-size: 2.2rem;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    color: var(--btn-background-color);
+    cursor: pointer;
+  }
+
+  .navbar__control.click {
+    display: none;
+  }
+
+  .navbar__close-btn {
+    position: absolute;
+    display: none;
+    top: 1px;
+    right: 1px;
+    font-size: 2.2rem;
+    justify-content: center;
+    align-items: center;
+    color: var(--btn-background-color);
+    background: var(--primary-color);
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    animation: closeBtnAnimation 0.25s ease;
+  }
+
+  .open-close-btn {
+    display: flex;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    background: var(--primary-color);
+    color: var(--btn-background-color);
+  }
+
+  @keyframes closeBtnAnimation {
+    from {
+      transform: translateY(-100px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  /* HEADING */
+  .homepage {
+    display: block;
+    padding-bottom: 0;
+  }
+
+  .about-us {
+    width: 100%;
+  }
+  .about-us__heading {
+    width: 387px;
+    font-size: 5.5rem;
+  }
+
+  .slideshow {
+    display: block;
+    margin-top: 24px;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .slideshow .slides-area {
+    width: 100%;
+  }
+
+  /* OUR_SERVICE */
+  .service {
+    padding-bottom: 0;
+  }
+
+  .service__list {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 50px;
+  }
+
+  .service__item:hover {
+    background: var(--white-color);
+    box-shadow: -6px 9px 64px -4px rgba(118, 118, 118, 0.25);
+    border-radius: 20px;
+    transform: translateY(-50px);
+    transition: 0.25s ease;
+  }
+
+  .service__info {
+    padding: 24px 12px;
+  }
+
+  .service__item:hover .service__info {
+    padding: 24px 12px;
+  }
+
+  .service__desc {
+    width: 100%;
+    text-align: justify;
+    padding: 24px 12px;
+  }
+
+  /* PROJECT */
+  .project__heading {
+    width: 100%;
+  }
+
+  .project__sub-title {
+    width: 100%;
+    text-align: justify;
+  }
+
+  .project__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .project__modal-body {
+    width: 100%;
+  }
+
+  .modal__FT-close-btn {
+    right: 35px;
+    top: 170px;
   }
 }

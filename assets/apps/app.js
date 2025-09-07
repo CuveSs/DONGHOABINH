@@ -86,3 +86,26 @@ modalGHClose.addEventListener("click", (GH) => {
 modalGHLayOut.addEventListener("click", (GHLO) => {
   modalGH.classList.remove("open");
 });
+
+/* =========================RESIZE-APPS================================= */
+const showNavbarBtn = document.querySelector(".navbar__control");
+const closeNavbarBtn = document.querySelector(".navbar__close-btn");
+const navbarMenu = document.querySelector(".navbar");
+const navbarHeaderCover = document.querySelector(".header");
+
+showNavbarBtn.addEventListener("click", (showNavbar) => {
+  navbarMenu.classList.add("navbar-open");
+  navbarHeaderCover.classList.add("header-extend");
+  closeNavbarBtn.classList.add("open-close-btn");
+});
+
+showNavbarBtn.addEventListener("click", (moveNavbarControl) => {
+  showNavbarBtn.classList.add("click");
+});
+
+closeNavbarBtn.addEventListener("click", (closeNavbar) => {
+  navbarMenu.classList.remove("navbar-open");
+  navbarHeaderCover.classList.remove("header-extend");
+  closeNavbarBtn.classList.remove("open-close-btn");
+  showNavbarBtn.classList.remove("click");
+});

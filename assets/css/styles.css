@@ -76,8 +76,11 @@ a {
 /* =========================Header-Start================================= */
 .header {
   position: sticky;
-  top: -10px;
-  padding-top: 2.4rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 110px;
   background: var(--primary-color-rgba);
   backdrop-filter: blur(15px);
   z-index: 10;
@@ -117,6 +120,14 @@ a {
 .navbar-item:hover a {
   opacity: 1;
   cursor: pointer;
+}
+
+.navbar__control {
+  display: none;
+}
+
+.navbar__close-btn {
+  display: none;
 }
 
 /* =========================Homepage================================= */
