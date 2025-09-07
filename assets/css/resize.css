@@ -119,25 +119,29 @@
 
 /* ************************MOBILE************************************* */
 
-@media (max-width: 740px) {
+@media (max-width: 720px) {
   body::-webkit-scrollbar {
     display: none;
   }
 
   .header {
-    height: 190px;
-    transition: 0.25s ease;
-  }
-
-  .header-extend {
-    height: 230px;
+    position: sticky;
+    margin-top: -10px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 160px;
+    background: var(--primary-color-rgba);
+    backdrop-filter: blur(15px);
+    z-index: 10;
   }
 
   .header-top {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 167px;
+    height: 200px;
   }
 
   .logo {
@@ -146,6 +150,7 @@
 
   .navbar {
     position: absolute;
+    padding-top: 10px;
     top: 0;
     display: none;
     width: 100%;

@@ -76,11 +76,12 @@ a {
 /* =========================Header-Start================================= */
 .header {
   position: sticky;
+  margin-top: -10px;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 110px;
+  height: 60px;
   background: var(--primary-color-rgba);
   backdrop-filter: blur(15px);
   z-index: 10;
