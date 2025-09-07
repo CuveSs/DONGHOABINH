@@ -125,7 +125,6 @@
   }
 
   .header {
-    padding-top: 55px;
     height: 190px;
     transition: 0.25s ease;
   }
@@ -250,8 +249,8 @@
     width: 100%;
   }
   .about-us__heading {
-    width: 387px;
-    font-size: 5.5rem;
+    width: 100%;
+    font-size: 4.5rem;
   }
 
   .slideshow {
