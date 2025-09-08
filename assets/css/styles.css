@@ -170,7 +170,7 @@ a {
 
 .slideshow .slides-area {
   position: relative;
-  width: 626px;
+  width: 100%;
   height: 400px;
   background-color: #ccc;
   overflow: hidden;

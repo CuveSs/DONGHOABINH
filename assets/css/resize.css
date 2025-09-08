@@ -141,7 +141,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 160px;
+    height: 136px;
   }
 
   .logo {
@@ -155,7 +155,7 @@
 
   .navbar {
     position: absolute;
-    padding-top: 10px;
+    /* padding-top: 10px; */
     top: 0;
     display: none;
     width: 100%;
@@ -183,7 +183,7 @@
     width: 100%;
     text-align: left;
     background: var(--btn-background-color);
-    padding: 6px 24px;
+    padding: 2px 24px;
     border: 1px solid var(--primary-color);
     transition: 0.25s ease;
     cursor: pointer;
@@ -234,7 +234,9 @@
   .open-close-btn {
     display: flex;
     position: absolute;
-    top: 11px;
+    width: 40px;
+    height: 34px;
+    top: 1px;
     right: 1px;
     background: var(--primary-color);
     color: var(--btn-background-color);
