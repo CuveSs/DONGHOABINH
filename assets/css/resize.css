@@ -131,7 +131,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: 160px;
+    height: 120px;
     background: var(--primary-color-rgba);
     backdrop-filter: blur(15px);
     z-index: 10;
@@ -141,7 +141,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 200px;
+    height: 160px;
   }
 
   .logo {
@@ -234,7 +234,7 @@
   .open-close-btn {
     display: flex;
     position: absolute;
-    top: 1px;
+    top: 11px;
     right: 1px;
     background: var(--primary-color);
     color: var(--btn-background-color);
