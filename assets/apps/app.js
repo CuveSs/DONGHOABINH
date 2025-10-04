@@ -198,50 +198,62 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* =========================LANGUAGE================================= */
-document.addEventListener("DOMContentLoaded", function () {
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-      {
-        pageLanguage: "vi",
-        includedLanguages: "en",
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false,
-      },
-      "google_translate_element"
-    );
-    setupCustomLanguageToggle();
-  }
 
-  function setupCustomLanguageToggle() {
-    const langCheckbox = document.getElementById("langCheckbox");
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: "vi",
+      includedLanguages: "en",
+      layout: 0,
+      autoDisplay: false,
+    },
+    "google_translate_element"
+  );
+  setTimeout(setupCustomLanguageToggle, 500);
+}
 
-    // Translate active function
-    function triggerLanguageChange(targetLang) {
-      const selectElement = document.querySelector(".goog-te-combo");
+function setupCustomLanguageToggle() {
+  const langCheckbox = document.getElementById("langCheckbox");
 
-      if (selectElement) {
-        console.log("Translate to:", targetLang);
-        selectElement.value = targetLang;
-        selectElement.dispatchEvent(new Event("change"));
-        document.body.setAttribute("data-lang", targetLang);
-      } else {
-        console.error(
-          "ERROR: Can not found any hide dropdown (.goog-te-combe) to active translate."
-        );
-        setTimeout(setupCustomLanguageToggle, 100);
+  // Translate active function
+  function triggerLanguageChange(targetLang, isReset = false) {
+    const selectElement = document.querySelector(".goog-te-combo");
+
+    if (selectElement) {
+      if (isReset || targetLang === "vi") {
+        document.cookie =
+          "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+        document.cookie =
+          "googtrans=/vi/vi; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
       }
-    }
 
-    if (langCheckbox) {
-      langCheckbox.addEventListener("change", function () {
-        if (this.checked) {
-          triggerLanguageChange("en");
-        } else {
-          triggerLanguageChange("vi");
-        }
-      });
+      selectElement.value = targetLang;
 
-      document.body.setAttribute("data-lang", "vi");
+      selectElement.dispatchEvent(new Event("change"));
+
+      document.body.setAttribute("data-lang", targetLang);
+      console.log("Kích hoạt dịch thành công sang:", targetLang);
+    } else {
+      console.error("Lỗi: Không tìm thấy dropdown ẩn của Google Translate.");
     }
   }
-});
+
+  if (langCheckbox) {
+    langCheckbox.addEventListener("change", function () {
+      if (this.checked) {
+        triggerLanguageChange("en", true);
+      } else {
+        triggerLanguageChange("vi", true);
+      }
+    });
+
+    if (document.cookie.includes("googtrans=/vi/en")) {
+      langCheckbox.checked = true;
+      document.body.setAttribute("data-lang", "en");
+    } else {
+      langCheckbox.checked = false;
+      document.body.setAttribute("date-lang", "vi");
+    }
+  }
+}
