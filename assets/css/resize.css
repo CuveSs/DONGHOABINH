@@ -177,8 +177,10 @@
   }
 
   .nav > li.nav__translate-item .toggle-button-cover {
-    display: block;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10 auto;
   }
 
   .nav > li:not(.nav__translate-item) {
@@ -224,7 +226,12 @@
     padding: 80px 0;
   }
 
+  .section__sub-title {
+    text-align: center;
+  }
+
   .service__header-top {
+    text-align: center;
     font-size: 3.2rem;
     margin-bottom: 40px;
   }

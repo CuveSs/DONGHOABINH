@@ -1,4 +1,7 @@
+/* ============SLIDE-SHOW, RESIZE-APPS, MODAL, ====== */
+
 document.addEventListener("DOMContentLoaded", function () {
+  /* =========================SLIDE-SHOW================================= */
   const featureImage = document.querySelector(".img-feature");
   const thumbnails = document.querySelectorAll(".slideshow-img__list img");
   const prevButton = document.querySelector(".control.prev");
@@ -110,66 +113,10 @@ document.addEventListener("DOMContentLoaded", function () {
     updateThumbnails();
     startAutoSlide();
   }
-});
+  /* =========================SLIDE-SHOW_END================================= */
 
-/* =========================MODAL================================= */
-const modalElements = [
-  {
-    btnSelector: ".project__item-FT",
-    modalSelector: ".modal__FT-project",
-    closeSelector: ".modal__FT-close-btn",
-    layoutSelector: ".modal__FT-layout",
-  },
-  {
-    btnSelector: ".project__item-CB",
-    modalSelector: ".modal__CB-project",
-    closeSelector: ".modal__CB-close-btn",
-    layoutSelector: ".modal__CB-layout",
-  },
-  {
-    btnSelector: ".project__item-GH",
-    modalSelector: ".modal__GH-project",
-    closeSelector: ".modal__GH-close-btn",
-    layoutSelector: ".modal__GH-layout",
-  },
-];
+  /* =========================RESIZE================================= */
 
-function setupModal(selectors) {
-  const showBtn = document.querySelector(selectors.btnSelector);
-  const modal = document.querySelector(selectors.modalSelector);
-  const modalClose = document.querySelector(selectors.closeSelector);
-  const modalLayout = document.querySelector(selectors.layoutSelector);
-
-  if (!showBtn || !modal || !modalClose || !modalLayout) {
-    console.error(
-      "Không tìm thấ một hoặc nhiều phần tử Modal",
-      selectors.modalSelector
-    );
-    return;
-  }
-
-  // Define O/C function
-
-  const openModal = () => {
-    modal.classList.add("open");
-    document.body.classList.add("no-scroll");
-  };
-
-  const closeModal = () => {
-    modal.classList.remove("open");
-    document.body.classList.remove("no-scroll");
-  };
-
-  // Setup evenListeners
-  showBtn.addEventListener("click", openModal);
-  modalClose.addEventListener("click", closeModal);
-  modalLayout.addEventListener("click", closeModal);
-}
-
-modalElements.forEach(setupModal);
-
-/* =========================RESIZE-APPS================================= */
-document.addEventListener("DOMContentLoaded", function () {
   const navToggle = document.getElementById("navToggle");
   const navMenu = document.getElementById("navMenu");
 
@@ -180,9 +127,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Change Icon (Hamburger to "X")
       if (navMenu.classList.contains("nav--open")) {
-        navToggle.innerHTML = "&#x2715;";
+        navToggle.textContent = "\u2715";
       } else {
-        navToggle.innerHTML = "&#9776";
+        navToggle.textContent = "\u2630";
       }
     });
 
@@ -195,6 +142,64 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+  /* =========================RESIZE-END================================= */
+
+  /* =========================MODAL================================= */
+
+  const modalElements = [
+    {
+      btnSelector: ".project__item-FT",
+      modalSelector: ".modal__FT-project",
+      closeSelector: ".modal__FT-close-btn",
+      layoutSelector: ".modal__FT-layout",
+    },
+    {
+      btnSelector: ".project__item-CB",
+      modalSelector: ".modal__CB-project",
+      closeSelector: ".modal__CB-close-btn",
+      layoutSelector: ".modal__CB-layout",
+    },
+    {
+      btnSelector: ".project__item-GH",
+      modalSelector: ".modal__GH-project",
+      closeSelector: ".modal__GH-close-btn",
+      layoutSelector: ".modal__GH-layout",
+    },
+  ];
+
+  function setupModal(selectors) {
+    const showBtn = document.querySelector(selectors.btnSelector);
+    const modal = document.querySelector(selectors.modalSelector);
+    const modalClose = document.querySelector(selectors.closeSelector);
+    const modalLayout = document.querySelector(selectors.layoutSelector);
+
+    if (!showBtn || !modal || !modalClose || !modalLayout) {
+      console.error(
+        "Không tìm thấ một hoặc nhiều phần tử Modal",
+        selectors.modalSelector
+      );
+      return;
+    }
+
+    // Define O/C function
+
+    const openModal = () => {
+      modal.classList.add("open");
+      document.body.classList.add("no-scroll");
+    };
+
+    const closeModal = () => {
+      modal.classList.remove("open");
+      document.body.classList.remove("no-scroll");
+    };
+
+    // Setup evenListeners
+    showBtn.addEventListener("click", openModal);
+    modalClose.addEventListener("click", closeModal);
+    modalLayout.addEventListener("click", closeModal);
+  }
+
+  modalElements.forEach(setupModal);
 });
 
 /* =========================LANGUAGE================================= */
@@ -216,38 +221,39 @@ function setupCustomLanguageToggle() {
   const langCheckbox = document.getElementById("langCheckbox");
 
   // Translate active function
-  function triggerLanguageChange(targetLang, isReset = false) {
+  function triggerLanguageChange(targetLang) {
     const selectElement = document.querySelector(".goog-te-combo");
 
     if (selectElement) {
-      if (isReset || targetLang === "vi") {
-        document.cookie =
-          "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie =
+        "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
-        document.cookie =
-          "googtrans=/vi/vi; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      if (targetLang === "en") {
+        document.cookie = "googtrans=/vi/en; expires=; path=/";
+      } else {
+        document.cookie = "googtrans=/vi/vi; expires=; path=/";
       }
 
       selectElement.value = targetLang;
-
       selectElement.dispatchEvent(new Event("change"));
 
       document.body.setAttribute("data-lang", targetLang);
-      console.log("Kích hoạt dịch thành công sang:", targetLang);
+      console.log("Kích hoạt dịch thành công sang:", targetLang);
     } else {
-      console.error("Lỗi: Không tìm thấy dropdown ẩn của Google Translate.");
+      console.error("Lỗi: Không tìm thấy dropdown ẩn của Google Translate.");
     }
   }
 
   if (langCheckbox) {
     langCheckbox.addEventListener("change", function () {
       if (this.checked) {
-        triggerLanguageChange("en", true);
+        triggerLanguageChange("en");
       } else {
-        triggerLanguageChange("vi", true);
+        triggerLanguageChange("vi");
       }
     });
 
+    // Xử lý trạng thái ban đầu dựa trên cookie
     if (document.cookie.includes("googtrans=/vi/en")) {
       langCheckbox.checked = true;
       document.body.setAttribute("data-lang", "en");

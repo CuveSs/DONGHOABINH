@@ -298,6 +298,7 @@ a {
   width: 100%;
   height: auto;
   max-height: 400px;
+  min-height: 250px;
   aspect-ratio: 16 / 9;
   background-color: #ccc;
   overflow: hidden;
@@ -506,10 +507,6 @@ a {
   transform: scale(1.1);
 }
 
-.project__item:hover .project__info {
-  padding: 24px 18px;
-}
-
 .project__img {
   display: inline-block;
   width: 100%;
@@ -527,7 +524,7 @@ a {
 }
 
 .project__info {
-  padding: 24px 7px;
+  padding: 24px 18px;
   transition: 0.25s;
 }
 
@@ -539,7 +536,7 @@ a {
 }
 
 .project__desc {
-  text-align: left;
+  text-align: justify;
   width: 313px;
   margin-top: 18px;
   color: var(--primary-color);
@@ -767,7 +764,7 @@ a {
 .project__modal-CB-wrapper,
 .modal__GH-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1px));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   grid-auto-rows: 158px;
   grid-auto-flow: dense;
   gap: 16px;
