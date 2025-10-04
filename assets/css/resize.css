@@ -306,3 +306,63 @@
     width: 100%;
   }
 }
+
+/* ************************MOBILE LARGE (iPhone XS Max - 414px)************************************* */
+
+@media (max-width: 414px) and (min-width: 375px) {
+  /* 1. TYPOGRAPHY & HEADING (Tận dụng không gian) */
+  .about-us__heading {
+    font-size: 4.5rem; /* Tăng nhẹ heading chính */
+  }
+
+  .about-us___desc {
+    font-size: 1.7rem;
+  }
+
+  .service__header-top,
+  .project__heading {
+    font-size: 3.5rem; /* Tăng heading phần 2 và 3 */
+  }
+
+  /* 2. SLIDESHOW */
+  .slideshow .slides-area {
+    max-height: 350px; /* Tăng chiều cao slideshow */
+  }
+
+  /* 3. CONTACT FORM */
+  .contact__header-desc {
+    width: 80%; /* Giảm bớt chiều rộng của mô tả để căn chỉnh tốt hơn */
+  }
+
+  /* 4. MODAL GALLERY */
+  .project__modal-body {
+    width: 90%; /* Tăng width của modal body */
+  }
+
+  /* Cấu hình lại Grid cho màn hình 414px để hiển thị nhiều ảnh hơn */
+  .project__modal-FT-wrapper,
+  .project__modal-CB-wrapper,
+  .modal__GH-wrapper {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(120px, 1fr)
+    ); /* Có thể chứa 3 cột nhỏ */
+    grid-auto-rows: 120px;
+  }
+
+  /* Điều chỉnh Masonry Effect */
+  .tall {
+    grid-row: span 3;
+    grid-column: span 3;
+  }
+
+  .wide {
+    grid-row: span 3;
+    grid-column: span 3;
+  }
+
+  .modal__slogan {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
