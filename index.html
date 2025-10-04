@@ -105,43 +105,61 @@
     <link rel="stylesheet" href="./assets/css/resize.css" />
   </head>
   <body>
+    <!-- Translate API-->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.translateElement(
+          {
+            pageLanguage: "vi",
+            includedLanguages: "en",
+            layout: google.translate.translateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+          },
+          "google_translate-element"
+        );
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+
     <main style="background-color: #2e3c3b">
       <!-- Header -->
-      <header class="header">
-        <div class="container">
-          <div class="header-top">
-            <!-- Logo -->
-            <a href="#" class="logo">
-              <img src="./assets/icon/logo.png" alt="Dong Hoa Bình" />
-            </a>
-
-            <!-- Navigation -->
-            <nav class="navbar">
-              <ul class="navbar-list">
-                <li class="navbar-item">
-                  <a href="#home" class="navbar-link">ABOUT US</a>
-                </li>
-                <li class="navbar-item">
-                  <a href="#our-service" class="navbar-link">OUR SERVICE</a>
-                </li>
-                <li class="navbar-item">
-                  <a href="#project" class="navbar-link">PRODUCT</a>
-                </li>
-                <li class="navbar-item">
-                  <a href="#contact" class="navbar-link">CONTACT US</a>
-                </li>
-              </ul>
-            </nav>
-
-            <div class="navbar__control">
-              <i class="fa-solid fa-bars"></i>
-            </div>
-            <div class="navbar__close-btn">
-              <i class="fa-solid fa-xmark"></i>
-            </div>
+      <section class="heading">
+        <header class="header container">
+          <!-- Logo -->
+          <div class="logo">
+            <img
+              src="./assets/icon/logo.png"
+              alt="ĐÔNG HÒA BÌNH LIMITED COMPANY"
+              class="logo__img"
+            />
           </div>
-        </div>
-      </header>
+          <!-- NAV -->
+          <ul class="nav" id="navMenu">
+            <li><a href="#home">ABOUT US</a></li>
+            <li><a href="#our-service">OUR SERVICE</a></li>
+            <li><a href="#project">PROJECT</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+
+            <li class="nav__trnslate-item">
+              <div id="google_translate_element" style="display: none"></div>
+
+              <div class="toggle-button-cover custom-lang-toggle">
+                <div class="button r" id="button-3">
+                  <input type="checkbox" class="checkbox" id="langCheckbox" />
+                  <div class="knobs"></div>
+                  <div class="layer"></div>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <div class="nav-toggle-icon" id="navToggle">&#9776;</div>
+        </header>
+      </section>
+
       <!-- About us -->
       <section class="homepage container" id="home">
         <section class="about-us">
@@ -164,7 +182,7 @@
           <div class="slides-area">
             <img
               src="./assets/img/THUMP/DHB_01-maria-baranova-CEFNoc7pYfM.jpg"
-              alt=""
+              alt="ĐÔNG HÒA BÌNH CO.LTD"
               class="img-feature"
             />
             <button class="control prev">
@@ -180,8 +198,8 @@
               src="./assets/img/THUMP/DHB_01-maria-baranova-CEFNoc7pYfM.jpg"
               alt=""
             />
-            <img src="./assets/img/THUMP/thumbnail.jpg" alt="" />
-            <img src="./assets/img/THUMP/thumbnail2.jpg" alt="" />
+            <img src="./assets/img/THUMP/thumbnail.jpg" alt="Thumbnail 2" />
+            <img src="./assets/img/THUMP/thumbnail2.jpg" alt="Thumbnail 3" />
           </div>
         </section>
       </section>
@@ -190,9 +208,9 @@
       <section class="service" id="our-service">
         <div class="container">
           <p class="section__sub-title">OUR SERVICE</p>
-          <header class="service__header-top">
+          <h2 class="service__header-top">
             We offer a wide range of services.
-          </header>
+          </h2>
 
           <div class="service__list">
             <!-- Service Item 1 -->
@@ -203,14 +221,15 @@
                     src="./assets/img/THUMP/DHB-SV-dominik-scythe-v8vz-Roj8zo.jpg"
                     alt="Đông Hòa Bình Gia công đồ gỗ tốt nhất Việt Nam"
                     class="service__thumb"
+                    loading="lazy"
                   />
                 </a>
               </div>
 
               <section class="service__info">
-                <a href="#project" class="service__title"
-                  >CHÚNG TÔI NHẬN GIA CÔNG</a
-                >
+                <h3 class="service__title">
+                  <a href="#project">CHÚNG TÔI NHẬN GIA CÔNG</a>
+                </h3>
                 <p class="service__desc">
                   Chúng tôi chuyên gia công theo yêu cầu các sản phẩm nội thất,
                   ngoại thất, đồ gia dụng và thiết bị hỗ trợ nông nghiệp. Với
@@ -228,11 +247,14 @@
                   src="./assets/img/THUMP/DHB-Th-CGmarkus-spiske-H.jpg"
                   alt="Đông Hòa Bình Gia công đồ gỗ tốt nhất Việt Nam"
                   class="service__thumb"
+                  loading="lazy"
                 />
               </a>
 
               <section class="service__info">
-                <a href="#!" class="service__title">PHƯƠNG THỨC GIAO HÀNG</a>
+                <h3 class="service__title">
+                  <a href="#!">PHƯƠNG THỨC GIAO HÀNG</a>
+                </h3>
                 <p class="service__desc">
                   Chúng tôi cung cấp giải pháp gia công và xuất khẩu trọn gói,
                   từ khâu sản xuất đến vận chuyển quốc tế. Tối ưu thời gian và
@@ -418,7 +440,12 @@
     </main>
 
     <!-- MODAL FT -->
-    <section class="modal__FT-project modal">
+    <section
+      class="modal__FT-project modal"
+      role="dialog"
+      aria-modal="true"
+      id="myModal1"
+    >
       <div class="modal__FT-layout"></div>
       <div class="project__modal-body">
         <div class="project__modal-FT-wrapper">
@@ -502,22 +529,28 @@
           </div>
         </div>
 
-        <button class="modal__FT-close-btn">
+        <button class="modal__FT-close-btn" aria-label="Đóng hộp thoại">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
     </section>
 
     <!-- MODAL CB -->
-    <section class="modal__CB-project modal">
+    <section
+      class="modal__CB-project modal"
+      role="dialog"
+      aria-modal="true"
+      id="myModal2"
+    >
       <div class="modal__CB-layout"></div>
       <div class="project__modal-body">
         <div class="project__modal-CB-wrapper">
-          <div class="wide">
+          <div class="tall">
             <img
               src="./assets/img/CB/5AB3E7C9-0EAD-4373-BB6E-4AF195F4999A.jpeg"
               alt=""
               class="CB__img"
+              loading="lazy"
             />
           </div>
           <div class="wide">
@@ -534,7 +567,7 @@
               class="CB__img"
             />
           </div>
-          <div class="wide">
+          <div class="tall">
             <img
               src="./assets/img/CB/070A746E-A5F4-40DA-A96A-1232BEE53D59.jpeg"
               alt=""
@@ -556,14 +589,19 @@
             />
           </div>
         </div>
-        <button class="modal__CB-close-btn">
+        <button class="modal__CB-close-btn" aria-label="Đóng hộp thoại">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
     </section>
 
     <!-- MODAL GH -->
-    <section class="modal__GH-project modal">
+    <section
+      class="modal__GH-project modal"
+      role="dialog"
+      aria-modal="true"
+      id="myModal3"
+    >
       <div class="modal__GH-layout"></div>
       <div class="project__modal-body">
         <div class="modal__GH-wrapper">
@@ -572,6 +610,7 @@
               src="./assets/img/GH/DHB_gh-06-FG5421-215454-AS-454.jpeg"
               alt=""
               class="GH__img"
+              loading="lazy"
             />
           </div>
           <div class="wide">
@@ -602,12 +641,8 @@
               class="GH__img"
             />
           </div>
-          <div class="wide modal__slogan">
-            <img src="./assets/icon/logo.png" alt="" class="modal__logo" />
-            <h2 class="slogan">Sustainable quality - Global trust</h2>
-          </div>
         </div>
-        <button class="modal__GH-close-btn">
+        <button class="modal__GH-close-btn" aria-label="Đóng hộp thoại">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>

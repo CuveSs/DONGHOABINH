@@ -5,6 +5,7 @@
 :root {
   --primary-color: #2e3c3b;
   --primary-color-rgba: rgba(46, 60, 59, 0.9);
+  --heading-bg-color: rgba(255, 255, 255, 0.075);
   --mix-color: #e9967a;
   --second-primary-color: #daae5d;
   --btn-background-color: #daae5d;
@@ -74,61 +75,184 @@ a {
 }
 
 /* =========================Header-Start================================= */
-.header {
+
+.heading {
   position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 110px;
-  background: var(--primary-color-rgba);
-  backdrop-filter: blur(15px);
-  z-index: 10;
+  top: -10px;
+  background: var(--primary-color);
+  z-index: 10000;
 }
 
-.header-top {
-  position: relative;
+.header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding-bottom: 12px;
+  padding: 7px 0;
 }
 
-.logo img {
+.logo {
   width: 100px;
   height: 100px;
 }
 
-.navbar {
-  margin-left: auto;
+.logo__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
-.navbar-list {
+.nav {
+  list-style: none;
   display: flex;
+  padding: 0;
+  margin: 0;
+  order: 2;
   align-items: center;
 }
 
-.navbar-link {
-  color: var(--second-primary-color);
+.nav > li {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.nav li a {
+  padding: 24px 16px;
+  color: var(--btn-background-color);
   font-family: var(--heading-font);
-  padding: 16px 24px;
-  font-size: 1.8rem;
   font-weight: 700;
-  line-height: 1.55;
-  opacity: 0.9;
+  font-size: 1.8rem;
+  transition: color 0.3s;
 }
 
-.navbar-item:hover a {
-  opacity: 1;
+.nav li a:hover {
   cursor: pointer;
+  color: var(--yellow-color);
 }
 
-.navbar__control {
+.nav-toggle-icon {
   display: none;
+  cursor: pointer;
+  font-size: 3rem;
+  color: var(--yellow-color);
+  order: 4;
 }
 
-.navbar__close-btn {
-  display: none;
+/* =========================Header-End================================= */
+
+/* =========================Translate-Button================================= */
+
+/* 1. KHUNG CHỨA VÀ VỊ TRÍ (NAV BAR) */
+.toggle-button-cover {
+  position: static; /* Khôi phục lại luồng tài liệu nếu cần */
+  margin: 26px 0 0 40px;
+  order: 3; /* Quan trọng cho Flexbox/Grid trong Navbar */
+  /* Loại bỏ 'button-cover' và các quy tắc không cần thiết khác */
 }
+
+/* 2. CÁC QUY TẮC CHUNG CHO CẢ NÚT */
+/* Kết hợp các quy tắc 'position: absolute' chung */
+.button-cover,
+.knobs,
+.layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* 3. KHUNG CÔNG TẮC CHÍNH */
+.button {
+  position: relative;
+  top: 50%; /* Căn giữa theo chiều dọc của nút chuyển đổi */
+  width: 74px;
+  height: 36px;
+  margin: -20px auto 0 auto; /* Đẩy lên (20px = 36px/2 + 2px điều chỉnh) */
+  overflow: hidden;
+}
+
+.button.r,
+.button.r .layer {
+  border-radius: 100px; /* Làm tròn hoàn toàn */
+}
+
+/* 4. CHECKBOX (ẨN) */
+.checkbox {
+  position: relative; /* Quan trọng để nó nằm trên cùng (z-index) */
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+/* 5. NỀN (LAYER) VÀ NÚT TRÒN (KNOBS) */
+.knobs {
+  z-index: 2;
+}
+
+.layer {
+  width: 100%;
+  background-color: #fcebeb; /* Màu nền khi TẮT (VN) */
+  transition: 0.3s ease all;
+  z-index: 1;
+}
+
+/* 6. THIẾT KẾ CỤ THỂ CHO NÚT #button-3 (Nút tròn "VN" / "US") */
+
+#button-3 .knobs:before {
+  content: "VN";
+  position: absolute;
+  top: 4px; /* Căn chỉnh vị trí dọc */
+  left: 4px; /* Vị trí ban đầu (VN) */
+
+  /* Kích thước và kiểu chữ */
+  width: 20px;
+  height: 10px;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  padding: 9px 4px;
+
+  /* Màu sắc và hình dáng (VN) */
+  color: #ffc717; /* Màu chữ */
+  background-color: #f44336; /* Màu nền nút */
+  border-radius: 50%;
+
+  /* Hiệu ứng chuyển động */
+  transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+}
+
+/* 7. HIỆU ỨNG KHI ĐƯỢC CHỌN (CHECKED - US) */
+
+#button-3 .checkbox:checked + .knobs:before {
+  content: "US"; /* Đổi chữ */
+  left: 42px; /* Dịch chuyển sang phải */
+  color: #fff;
+  background-color: #03a9f4; /* Màu nền nút (US) */
+}
+
+#button-3 .checkbox:checked ~ .layer {
+  background-color: #d7e3e3; /* Màu nền công tắc khi BẬT (US) */
+}
+
+/* 8. HIỆU ỨNG NHẤN CHUỘT (ACTIVE) */
+
+/* Khi nhấn chuột (trước khi thả), nút tròn dãn ra */
+#button-3 .checkbox:active + .knobs:before {
+  width: 46px; /* Dãn rộng nút tròn */
+  border-radius: 100px; /* Dãn tròn thành hình elip */
+}
+
+/* Hiệu ứng nhấn chuột khi nút đã ở trạng thái CHECKED (US) */
+#button-3 .checkbox:checked:active + .knobs:before {
+  margin-left: -26px; /* Điều chỉnh vị trí dãn ra để nút dãn về bên trái */
+}
+
+/* =========================Translate-Button__END================================= */
 
 /* =========================Homepage================================= */
 
@@ -136,6 +260,7 @@ a {
   display: flex;
   align-items: center;
   padding: 170px 0;
+  flex-wrap: nowrap;
 }
 
 .about-us {
@@ -171,7 +296,9 @@ a {
 .slideshow .slides-area {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: auto;
+  max-height: 400px;
+  aspect-ratio: 16 / 9;
   background-color: #ccc;
   overflow: hidden;
   border-radius: 20px;
@@ -180,9 +307,19 @@ a {
 .img-feature {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 6px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(0);
+  transition: 0.5s ease-in-out;
+}
+
+.img-feature.slide-next {
+  transform: translateX(100%);
+}
+
+.img-feature.slide-prev {
+  transform: translateX(-100%);
 }
 
 .control {
@@ -197,6 +334,7 @@ a {
   top: 50%;
   cursor: pointer;
   transform: translateY(-50%);
+  z-index: 10;
 }
 
 .control:hover {
@@ -234,6 +372,7 @@ a {
 .section__sub-title {
   display: flex;
   align-items: center;
+  justify-content: center;
   font-family: var(--heading-font);
   font-size: 2rem;
   font-weight: 500;
@@ -248,36 +387,32 @@ a {
   font-size: 4.2rem;
   font-weight: 600;
   line-height: 1.23;
+  text-align: center;
 }
 
 .service__list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 32px;
+  gap: 32px;
   margin-top: 76px;
 }
 
 .service__item {
   border-radius: 20px;
   background-color: var(--white-color);
+  transition: box-shadow 0.25s;
 }
 
 .service__item:hover {
-  background: var(--white-color);
   box-shadow: -6px 9px 64px -4px rgba(118, 118, 118, 0.25);
-  border-radius: 20px;
 }
 
 .service__item:hover .service__thumb {
   transform: scale(1.1);
 }
 
-.service__item:hover .service__info {
-  padding: 24px 18px;
-}
-
 .service__img {
-  display: inline-block;
+  display: block;
   width: 100%;
   overflow: hidden;
   border-radius: 20px 20px 0 0;
@@ -293,23 +428,26 @@ a {
 }
 
 .service__info {
-  padding: 24px 0;
+  padding: 24px 18px;
   transition: 0.25s;
 }
 
 .service__title {
   color: var(--second-primary-color);
-  padding-left: 7px;
   font-size: 2.2rem;
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.2;
+}
+
+.service__title a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .service__desc {
-  text-align: left;
-  width: 500px;
+  text-align: justify;
+  width: auto;
   margin-top: 18px;
-  padding-left: 7px;
   color: var(--primary-color);
   font-size: 1.4rem;
   font-weight: 500;
@@ -583,182 +721,126 @@ a {
   align-items: center;
   justify-content: center;
   display: none;
-  z-index: 100;
+  z-index: 1000;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .modal.open {
   display: flex;
+  opacity: 1;
+  visibility: visible;
 }
 
-.modal__FT-layout {
+.modal__FT-layout,
+.modal__CB-layout,
+.modal__GH-layout {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 40;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 100;
 }
 
 .project__modal-body {
   position: relative;
-  width: 1140px;
-  max-width: calc(100% - 32px);
-  height: 700px;
+  max-width: 900px;
+  max-height: 75vh;
+  width: 80%;
   background: var(--white-color);
-  margin: auto;
-  margin-top: 150px;
-  padding: 10px;
+  padding: 20px;
   border-radius: 20px;
-  z-index: 100;
-  overflow: scroll;
-  animation: modalAnimation ease 0.3s;
+  z-index: 200;
+  overflow-y: scroll;
+  animation: modalAnimation;
+  transform: translateY(0);
 }
 
 .project__modal-body::-webkit-scrollbar {
   display: none;
 }
 
-.project__modal-FT-wrapper {
+/* TỐI ƯU HÓA GRID BỐ CỤC ẢNH */
+
+.pr.project__modal-FT-wrapper,
+.project__modal-CB-wrapper,
+.modal__GH-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(268px, 1px));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1px));
   grid-auto-rows: 158px;
   grid-auto-flow: dense;
   gap: 16px;
 }
 
-.project__modal-FT-wrapper div {
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.FT__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.modal__FT-close-btn {
-  position: fixed;
-  right: 400px;
-  top: 170px;
-  width: 50px;
-  height: 50px;
-  font-size: 1.8rem;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  background: transparent;
-  color: var(--primary-color);
-  transition: 0.25s ease;
-}
-
-.modal__FT-close-btn:hover {
-  background: var(--white-color);
-  color: var(--btn-background-color);
-  opacity: 0.7;
-  cursor: pointer;
-}
-
-/* MODAL CB */
-
-.modal__CB-layout {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 40;
-}
-
-.project__modal-CB-wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(268px, 1px));
-  grid-auto-rows: 250px;
-  grid-auto-flow: dense;
-  gap: 16px;
-}
-
-.project__modal-CB-wrapper div {
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.CB__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.modal__CB-close-btn {
-  position: fixed;
-  right: 400px;
-  top: 170px;
-  width: 50px;
-  height: 50px;
-  font-size: 1.8rem;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  background: transparent;
-  color: var(--primary-color);
-  transition: 0.25s ease;
-}
-
-.modal__CB-close-btn:hover {
-  background: var(--white-color);
-  color: var(--btn-background-color);
-  opacity: 0.7;
-  cursor: pointer;
-}
-
-/* MODAL CB END */
-
-/* MODAL GH */
-.modal__GH-layout {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 40;
-}
-
-.modal__GH-wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(268px, 1px));
-  grid-auto-rows: 250px;
-  grid-auto-flow: dense;
-  gap: 16px;
-}
-
+.project__modal-FT-wrapper div,
+.project__modal-CB-wrapper div,
 .modal__GH-wrapper div {
   overflow: hidden;
   border-radius: 10px;
 }
 
+.FT__img,
+.CB__img,
 .GH__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+  border-radius: 10px;
 }
 
+/* TỐI ƯU HÓA NÚT ĐÓNG */
+
+.modal__FT-close-btn,
+.modal__CB-close-btn,
 .modal__GH-close-btn {
-  position: fixed;
-  right: 400px;
-  top: 170px;
-  width: 50px;
-  height: 50px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 35px;
+  height: 35px;
   font-size: 1.8rem;
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  background: transparent;
-  color: var(--primary-color);
+  background: var(--white-color);
+  color: var(--second-primary-color);
   transition: 0.25s ease;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+.modal__FT-close-btn:hover,
+.modal__CB-close-btn:hover,
 .modal__GH-close-btn:hover {
-  background: var(--white-color);
-  color: var(--btn-background-color);
-  opacity: 0.7;
-  cursor: pointer;
+  background: var(--btn-background-color);
+  color: var(--white-color);
+}
+
+/* MASONRY EFFECT */
+
+.tall {
+  grid-row: span 4;
+  grid-column: span 7;
+}
+
+.tall__small {
+  grid-row: span 2;
+  grid-column: span 1;
+}
+
+.wide {
+  grid-row: span 4;
+  grid-column: span 7;
+}
+
+.wide__small {
+  grid-column: span 2;
+  grid-row: span 1;
 }
 
 .modal__slogan {
@@ -766,47 +848,36 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  grid-column: span 2;
+  grid-row: span 2;
+  padding: 30px;
+  text-align: center;
 }
 
 .modal__logo {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
 }
 
 .slogan {
-  margin-top: 60px;
+  margin-top: 30px;
   font-family: var(--heading-font);
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 600;
   color: var(--btn-background-color);
+  line-height: 1.3;
 }
 /* MODAL GH END */
-
-.tall {
-  grid-row: span 2;
-  grid-column: span 2;
-}
-
-.wide {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
-.tall__small {
-  grid-row: span 2;
-}
-
-.wide__small {
-  grid-column: span 2;
-}
 
 @keyframes modalAnimation {
   from {
     transform: translateY(-100px);
+    opacity: 0;
   }
   to {
     transform: translateY(0);
+    opacity: 1;
   }
 }
 
