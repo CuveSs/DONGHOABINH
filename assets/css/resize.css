@@ -12,7 +12,13 @@
 
 /* ************************TABLET************************************* */
 
-@media (max-width: 1024px) and (min-width: 740px) {
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* CONTAINER/BODY */
+  .container {
+    width: 750px;
+    max-width: calc(100% - 32px);
+  }
+
   /* ************************HEADER*********************** */
 
   .homepage {

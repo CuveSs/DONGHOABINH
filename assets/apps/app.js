@@ -253,7 +253,7 @@ function setupCustomLanguageToggle() {
       document.body.setAttribute("data-lang", "en");
     } else {
       langCheckbox.checked = false;
-      document.body.setAttribute("date-lang", "vi");
+      document.body.setAttribute("data-lang", "vi");
     }
   }
 }
