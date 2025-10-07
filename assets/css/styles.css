@@ -537,7 +537,7 @@ a {
 
 .project__desc {
   text-align: justify;
-  width: 313px;
+  width: auto;
   margin-top: 18px;
   color: var(--primary-color);
   font-size: 1.4rem;

@@ -93,7 +93,7 @@
   }
 
   .project__desc {
-    width: 397px;
+    width: auto;
   }
 
   /* MODAL */
@@ -251,7 +251,7 @@
   }
 
   .service__title {
-    font-size: 2rem;
+    font-size: 1.8rem;
     text-align: center;
   }
 
@@ -293,8 +293,12 @@
   .modal__FT-close-btn,
   .modal__CB-close-btn,
   .modal__GH-close-btn {
-    right: 30px;
-    top: 30px;
+    z-index: 500;
+    right: 15px;
+    top: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 2.2rem;
   }
 
   /* CONTACT */
@@ -344,6 +348,10 @@
   .service__header-top,
   .project__heading {
     font-size: 3.5rem; /* Tăng heading phần 2 và 3 */
+  }
+
+  .service__title {
+    font-size: 1.7rem;
   }
 
   /* 2. SLIDESHOW */
