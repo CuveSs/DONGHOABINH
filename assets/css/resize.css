@@ -312,6 +312,21 @@
   .contact__info {
     width: 100%;
   }
+
+  .contact__info-item {
+    gap: 15px;
+  }
+
+  .contact__info-icon {
+    width: 24px;
+    font-size: 1.6rem;
+    color: var(--yellow-color);
+    opacity: 1;
+  }
+
+  .contact__info-icon > i {
+    color: var(--yellow-color);
+  }
 }
 
 /* ************************MOBILE LARGE (iPhone XS Max - 414px)************************************* */
