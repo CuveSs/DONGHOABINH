@@ -1,15 +1,3 @@
-:root {
-  --primary-color: #2e3c3b;
-  --primary-color-rgba: rgba(46, 60, 59, 0.9);
-  --mix-color: #e9967a;
-  --second-primary-color: #daae5d;
-  --btn-background-color: #daae5d;
-  --yellow-color: #daae5d;
-  --white-color: #ffffff;
-  --ghost-white: #f9f9fb;
-  --heading-font: "Libertinus Sans";
-}
-
 /* ************************TABLET************************************* */
 
 @media (min-width: 768px) and (max-width: 1024px) {

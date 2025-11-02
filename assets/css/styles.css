@@ -1,23 +1,24 @@
-* {
-  box-sizing: border-box;
-}
-
 :root {
-  --primary-color: rgba(51, 129, 184, 0.9);
+  --primary-color: #fdf7c8;
   --primary-color-rgba: rgba(46, 60, 59, 0.9);
   --heading-bg-color: rgba(255, 255, 255, 0.075);
   --mix-color: #e9967a;
-  --second-primary-color: #daae5d;
-  --btn-background-color: #fff;
-  --yellow-color: #daae5d;
+  --second-primary-color: #0b395a;
+  --btn-background-color: #0b395a;
+  --yellow-color: #0b395a;
   --white-color: #ffffff;
   --ghost-white: #f9f9fb;
   --heading-font: "Libertinus Sans";
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   scroll-behavior: smooth;
+  background: #eeefea;
 }
 
 html {
@@ -79,7 +80,7 @@ a {
 .heading {
   position: sticky;
   top: -10px;
-  background-color: var(--primary-color);
+  background: var(--primary-color);
   z-index: 10000;
 }
 
@@ -261,6 +262,7 @@ a {
   align-items: center;
   padding: 170px 0;
   flex-wrap: nowrap;
+  background: #eeefea;
 }
 
 .about-us {
@@ -449,7 +451,7 @@ a {
   text-align: justify;
   width: auto;
   margin-top: 18px;
-  color: var(--primary-color);
+  color: var(--btn-background-color);
   font-size: 1.4rem;
   font-weight: 500;
   line-height: 1.71;
@@ -539,7 +541,7 @@ a {
   text-align: justify;
   width: auto;
   margin-top: 18px;
-  color: var(--primary-color);
+  color: var(--btn-background-color);
   font-size: 1.4rem;
   font-weight: 500;
   line-height: 1.71;
@@ -561,7 +563,7 @@ a {
 }
 
 .contact__header-top {
-  color: var(--primary-color);
+  color: var(--btn-background-color);
   font-family: var(--heading-font);
   font-size: 4.2rem;
   font-weight: 700;
@@ -569,7 +571,7 @@ a {
 }
 
 .contact__header-desc {
-  color: var(--primary-color);
+  color: var(--btn-background-color);
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.62;
