@@ -3,12 +3,12 @@
 }
 
 :root {
-  --primary-color: #2e3c3b;
+  --primary-color: rgba(51, 129, 184, 0.9);
   --primary-color-rgba: rgba(46, 60, 59, 0.9);
   --heading-bg-color: rgba(255, 255, 255, 0.075);
   --mix-color: #e9967a;
   --second-primary-color: #daae5d;
-  --btn-background-color: #daae5d;
+  --btn-background-color: #fff;
   --yellow-color: #daae5d;
   --white-color: #ffffff;
   --ghost-white: #f9f9fb;
@@ -79,7 +79,7 @@ a {
 .heading {
   position: sticky;
   top: -10px;
-  background: var(--primary-color);
+  background-color: var(--primary-color);
   z-index: 10000;
 }
 
